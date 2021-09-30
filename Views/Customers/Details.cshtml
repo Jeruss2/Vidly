@@ -1,4 +1,6 @@
-﻿@model vidly.Models.Customer
+﻿@using System.Activities.Statements
+@using vidly.Migrations
+@model vidly.Models.Customer
 
 @{
     ViewBag.Title = Model.Name;
@@ -6,3 +8,15 @@
 }
 
 <h2>@Model.Name</h2>
+
+<ul>
+    <li>
+        Membership Type: @Model.MembershipType.Name
+
+        @if (Model.Birthdate.HasValue)
+        {
+             <li>Birthdate: @Model.Birthdate.Value.ToShortDateString()</li> 
+
+         }
+    </li>
+</ul>
