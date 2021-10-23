@@ -15,6 +15,7 @@
 <table class="table table-bordered table-hover">
     <thead>
     <tr>
+        <th>Movie Poster</th>
         <th>Movie</th>
         <th>Genre</th>
     </tr>
@@ -23,8 +24,20 @@
     @foreach (var movie in Model)
     {
         <tr>
+            
+            <td>
+               @{
+                   var base64 = Convert.ToBase64String(movie.Image.Images);
+
+                   var imageDataUrl = $"data:image/jpg; base64, {base64}";
+               }
+               
+               <img src="@imageDataUrl" style="height: 259px; width: 384px"/>
+            </td>
+            
+
             <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new
-                {id = movie.Id}, null)</td>
+                { id = movie.Id }, null)</td>
 
             <td>@movie.GenreType.Name</td>
         </tr>

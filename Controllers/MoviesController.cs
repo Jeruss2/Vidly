@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Web.Mvc;
 using vidly.Models;
 using vidly.ViewModels;
+using Image = vidly.Models.Image;
 
 namespace vidly.Controllers
 {
@@ -25,14 +28,47 @@ namespace vidly.Controllers
 
 
 
+        //[HttpPost]
+        //public ActionResult RetrieveImage()
+        //{
+        //    //Image img = db.Images.OrderByDescending
+        //    //    (i => i.Id).SingleOrDefault();
+
+        //    var img = _context.Images;
+
+        //    var imgList = new List<string>();
+
+        //    foreach (var image in img)
+        //    {
+        //        imgList.Add(Convert.ToBase64String(image.Images));
+        //    }
+
+
+        //    //string imageBase64Data =
+        //    //    Convert.ToBase64String(_context.Images);
+
+        //    string imageDataURL =
+        //        string.Format("data:image/jpg;base64,{0}",
+        //            imgList.FirstOrDefault());
+
+
+
+        //    ViewBag.ImageDataUrl = imageDataURL;
+
+        //    return View("Index");
+        //}
+
+
+
         // GET: Movies
         [Route("movies/index")]
         public ViewResult Index()
         {
             //var movies = GetMovies();
 
-            var movies = _context.Movies.Include(m => m.GenreType).ToList();
+            var movies = _context.Movies.Include(m => m.GenreType).Include(i=>i.Image).ToList();
 
+            //Added include i=>Image...
 
             return View(movies);
         }
@@ -40,7 +76,9 @@ namespace vidly.Controllers
 
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.Include(x => x.GenreType).SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movies.Include(x => x.GenreType).Include(m=>m.Image.Images).SingleOrDefault(c => c.Id == id);
+
+            //added images here...
 
             if (movie == null)
                 return HttpNotFound();
@@ -52,11 +90,16 @@ namespace vidly.Controllers
         public ActionResult NewMovie()
         {
             var genreTypes = _context.GenreTypes.ToList();
+            var images = _context.Images.ToList();
 
             var viewModel = new MovieFormViewModel
             {
                 //Movie = new Movie(),
-                GenreTypes = genreTypes
+                GenreTypes = genreTypes,
+                Images = images
+
+                //Added images here...
+
             };
 
 
@@ -77,7 +120,11 @@ namespace vidly.Controllers
             {
                 Movie = movie,
 
-                GenreTypes = _context.GenreTypes.ToList()
+                GenreTypes = _context.GenreTypes.ToList(),
+
+                Images = _context.Images.ToList()
+
+                //Added Images here
             };
 
 
@@ -93,7 +140,8 @@ namespace vidly.Controllers
                 var viewModel = new MovieFormViewModel
                 {
                     Movie = movie,
-                    GenreTypes = _context.GenreTypes.ToList()
+                    GenreTypes = _context.GenreTypes.ToList(),
+                    Images = _context.Images.ToList()
                 };
 
                 return View("MovieForm", viewModel);
@@ -116,6 +164,10 @@ namespace vidly.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.NumberInStock = movie.NumberInStock;
                 movieInDb.GenreTypeId = movie.GenreTypeId;
+                movieInDb.Image = movie.Image;
+
+                //Added Image here...
+
 
             }
 

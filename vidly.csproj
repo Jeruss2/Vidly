@@ -48,6 +48,12 @@
     <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -124,12 +130,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -255,11 +255,28 @@
     <Compile Include="Migrations\202109261826446_UpdateMovieAnnotations.Designer.cs">
       <DependentUpon>202109261826446_UpdateMovieAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110220047434_InitialImages.cs" />
+    <Compile Include="Migrations\202110220047434_InitialImages.Designer.cs">
+      <DependentUpon>202110220047434_InitialImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110220053270_SeedInitialImages.cs" />
+    <Compile Include="Migrations\202110220053270_SeedInitialImages.Designer.cs">
+      <DependentUpon>202110220053270_SeedInitialImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110221947312_SeedRestOfItitialImages.cs" />
+    <Compile Include="Migrations\202110221947312_SeedRestOfItitialImages.Designer.cs">
+      <DependentUpon>202110221947312_SeedRestOfItitialImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110231508382_ConnectImagesWithMovie.cs" />
+    <Compile Include="Migrations\202110231508382_ConnectImagesWithMovie.Designer.cs">
+      <DependentUpon>202110231508382_ConnectImagesWithMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\GenreType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMemeber.cs" />
@@ -400,6 +417,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109261826446_UpdateMovieAnnotations.resx">
       <DependentUpon>202109261826446_UpdateMovieAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110220047434_InitialImages.resx">
+      <DependentUpon>202110220047434_InitialImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110220053270_SeedInitialImages.resx">
+      <DependentUpon>202110220053270_SeedInitialImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110221947312_SeedRestOfItitialImages.resx">
+      <DependentUpon>202110221947312_SeedRestOfItitialImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110231508382_ConnectImagesWithMovie.resx">
+      <DependentUpon>202110231508382_ConnectImagesWithMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

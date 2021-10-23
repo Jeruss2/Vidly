@@ -25,6 +25,9 @@ namespace vidly.Models
         [Display(Name = "Genre")]
         public byte GenreTypeId { get; set; }
 
+        public byte ImageId { get; set; }
+        public Image Image { get; set; }
+
     }
 
     // /movies

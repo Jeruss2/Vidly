@@ -131,3 +131,7 @@ C:\Users\jerus\source\repos\vidly\bin\System.Web.Http.xml
 C:\Users\jerus\source\repos\vidly\bin\System.Web.Http.WebHost.xml
 C:\Users\jerus\source\repos\vidly\bin\AutoMapper.dll
 C:\Users\jerus\source\repos\vidly\bin\AutoMapper.xml
+C:\Users\jerus\source\repos\vidly\obj\Debug\vidly.Migrations.InitialImages.resources
+C:\Users\jerus\source\repos\vidly\obj\Debug\vidly.Migrations.SeedInitialImages.resources
+C:\Users\jerus\source\repos\vidly\obj\Debug\vidly.Migrations.SeedRestOfItitialImages.resources
+C:\Users\jerus\source\repos\vidly\obj\Debug\vidly.Migrations.ConnectImagesWithMovie.resources
